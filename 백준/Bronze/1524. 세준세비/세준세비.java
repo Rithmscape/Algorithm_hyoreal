@@ -16,8 +16,8 @@ public class Main {
             int Smax = getMax(N, br); // 제일 강한 세준 병사
             int Bmax = getMax(M, br); // 제일 강한 세빈 병사
 
-            if(Smax > Bmax) System.out.println("S");
-            else if(Bmax > Smax) System.out.println("B");
+            if (Bmax > Smax) System.out.println("B");
+            else if (Smax > Bmax) System.out.println("S");
             else System.out.println("S");
         }
     }
