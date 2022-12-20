@@ -17,14 +17,10 @@ public class Main {
         for (int i = 0; i < 12; i++) {
 
             int sum = i;
-
             if (!pos.contains(i)) continue;
 
             for (int j = 0; j < n; j++) {
-                sum = sumSize(sum + play[j]);
-
-                if (sum < 0) sum = sumSize(sum);
-                if (sum >= 12) sum = sumSize(sum);
+                sum = sumSize(sumLen(sum + play[j]));
                 if (!pos.contains(sum)) break;
             }
 
@@ -36,10 +32,20 @@ public class Main {
         bw.close();
     }
 
-    // sum의 크기가 scale의 사이즈를 벗어날 때
     private static int sumSize(int sum) {
+        // 재귀 탈출조건
+        if (sum < 12 && sum >= 0) {
+            return sum;
+        }
+
+        if (sum < 0) sum = sumSize(sum + 12);
+        if (sum >= 12) sum = sumSize(sum - 12);
+        return sum;
+    }
+
+    private static int sumLen(int sum) {
         if (sum >= 12) sum -= 12;
-        else if (sum < 0) sum += 12;
+        if (sum < 0) sum += 12;
         return sum;
     }
 }
