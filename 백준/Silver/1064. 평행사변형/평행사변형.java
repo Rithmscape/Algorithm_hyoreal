@@ -19,13 +19,6 @@ public class Main {
         else {
             double min = Double.MAX_VALUE, max = Double.MIN_VALUE;
 
-//            double a = Math.sqrt(Math.pow(arr[1].y - arr[0].y, 2) + Math.pow(arr[1].x - arr[0].x, 2));
-//            double b = Math.sqrt(Math.pow(arr[2].y - arr[0].y, 2) + Math.pow(arr[2].x - arr[0].x, 2));
-//            double c = Math.sqrt(Math.pow(arr[2].y - arr[1].y, 2) + Math.pow(arr[2].x - arr[1].x, 2));
-//            len[0] = a + b;
-//            len[1] = b + c;
-//            len[2] = a + c;
-
             for (int j = 0; j < 3; j++) {
                 len[j]
                         = Math.sqrt(Math.pow(arr[j].x - arr[(j + 1) % 3].x, 2)
