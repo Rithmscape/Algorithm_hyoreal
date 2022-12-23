@@ -9,8 +9,13 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         Map<String, Integer> words = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            String word = br.readLine();
+
+        String word = br.readLine();
+        words.put(word, word.length());
+
+        for (int i = 0; i < n-1; i++) {
+            word = br.readLine();
+            if (words.containsKey(word)) continue;
             words.put(word, words.getOrDefault(word, word.length()));
         }
 
@@ -18,8 +23,9 @@ public class Main {
         entryList.sort(Map.Entry.comparingByKey()); // 사전 순 정렬
         entryList.sort(Map.Entry.comparingByValue()); // 길이 순 정렬
 
+        // System.out.println 사용시 632ms, bufferedWriter 사용시 476ms
         for (Map.Entry<String, Integer> entry : entryList) bw.write(entry.getKey() + "\n");
-        
+
         bw.close();
     }
 }
