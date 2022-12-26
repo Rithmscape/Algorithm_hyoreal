@@ -17,6 +17,8 @@ public class Main {
             word = br.readLine();
             words.put(word, words.getOrDefault(word, word.length()));
         }
+        
+        br.close();
 
         List<Entry<String, Integer>> entryList = new ArrayList<>(words.entrySet());
         entryList.sort(Entry.comparingByKey()); 
