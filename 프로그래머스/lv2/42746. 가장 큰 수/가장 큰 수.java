@@ -1,17 +1,13 @@
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class Solution {
     public String solution(int[] numbers) {
-        Object[] arr = Arrays.stream(numbers).mapToObj(String::valueOf)
-                        .sorted(((o1, o2) -> (o2 + o1).compareTo(o1 + o2)))
-                        .toArray();
+        String answer = IntStream.of(numbers)
+                .mapToObj(String::valueOf)
+                .sorted(((o1, o2) -> (o2 + o1).compareTo(o1 + o2)))
+                .collect(Collectors.joining());
 
-        StringBuilder answer = new StringBuilder();
-        for (Object s : arr) answer.append(s);
-
-        if (arr[0].equals("0")) return "0";
-
-        return answer.toString();
+        return answer.charAt(0) == '0' ? "0" : answer;
     }
 }
