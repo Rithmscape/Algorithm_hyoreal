@@ -1,15 +1,14 @@
 import java.io.*;
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
         Deque<Integer> deque = new ArrayDeque<>();
 
         int N = Integer.parseInt(br.readLine());
-
         int first = 0;
 
         while (N-- > 0) {
@@ -22,13 +21,14 @@ public class Main {
                 }
                 first = value;
             } else if (deque.peek() != value) {
-                System.out.println("NO");
+                bw.write("NO");
+                bw.close();
                 return;
             }
-
             deque.pop();
             sb.append('-').append("\n");
         }
-        System.out.println(sb);
+        bw.write(String.valueOf(sb));
+        bw.close();
     }
 }
