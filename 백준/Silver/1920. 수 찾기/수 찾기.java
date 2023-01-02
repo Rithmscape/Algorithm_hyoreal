@@ -4,7 +4,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
@@ -20,7 +19,6 @@ public class Main {
         while (m-- > 0) {
             sb.append(Arrays.binarySearch(nArr, Integer.parseInt(st.nextToken())) >= 0 ? 1 : 0).append("\n");
         }
-        bw.write(String.valueOf(sb));
-        bw.close();
+        System.out.println(sb);
     }
 }
