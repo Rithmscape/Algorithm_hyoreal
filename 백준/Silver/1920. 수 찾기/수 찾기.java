@@ -17,8 +17,22 @@ public class Main {
         st = new StringTokenizer(br.readLine(), " ");
 
         while (m-- > 0) {
-            sb.append(Arrays.binarySearch(nArr, Integer.parseInt(st.nextToken())) >= 0 ? 1 : 0).append("\n");
+            sb.append(arrBinarySearch(nArr, Integer.parseInt(st.nextToken())) >= 0 ? 1 : 0).append("\n");
         }
-        System.out.println(sb);
+        System.out.print(sb);
+    }
+    
+    private static int arrBinarySearch(int[] nArr, int key) {
+        int low = 0;
+        int high = nArr.length - 1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (key < nArr[mid]) high = --mid;
+            else if (key > nArr[mid]) low = ++mid;
+            else return mid;
+        }
+        return -1;
     }
 }
