@@ -6,17 +6,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-        List<String> nList = new ArrayList<>();
+        String[] nArr = new String[n];
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        while (n-- > 0) nList.add(st.nextToken());
-        Collections.sort(nList);
+        for (int i = 0; i < n; i++) nArr[i] = st.nextToken();
+        Arrays.sort(nArr);
 
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine(), " ");
 
         while (m-- > 0) {
-            System.out.println(Collections.binarySearch(nList, st.nextToken()) >= 0 ? 1 : 0);
+            System.out.println(Arrays.binarySearch(nArr, st.nextToken()) >= 0 ? 1 : 0);
         }
     }
 }
