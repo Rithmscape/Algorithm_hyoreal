@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -13,7 +11,7 @@ public class Main {
         int lCnt = 0, rCnt = 0, max = 0;
 
         for (int i = 0; i < n; i++) {
-            if (Integer.parseInt(st.nextToken()) == 1) {
+            if (st.nextToken().equals("1")) {
                 if (rCnt > 0) rCnt--;
                 lCnt++;
                 max = Math.max(lCnt, max);
