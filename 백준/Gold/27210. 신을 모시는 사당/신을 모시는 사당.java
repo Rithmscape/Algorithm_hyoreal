@@ -10,25 +10,19 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int lCnt = 0;
-        int rCnt = 0;
-        int lMax = 0;
-        int rMax = 0;
+        int lCnt = 0, rCnt = 0, max = 0;
 
         for (int i = 0; i < n; i++) {
             if (Integer.parseInt(st.nextToken()) == 1) {
                 if (rCnt > 0) rCnt--;
                 lCnt++;
-                lMax = Math.max(lCnt, lMax);
-
-            }
-            else {
+                max = Math.max(lCnt, max);
+            } else {
                 if (lCnt > 0) lCnt--;
                 rCnt++;
-                rMax = Math.max(rMax, rCnt);
+                max = Math.max(rCnt, max);
             }
         }
-
-        System.out.println(Math.max(lMax, rMax));
+        System.out.println(max);
     }
 }
