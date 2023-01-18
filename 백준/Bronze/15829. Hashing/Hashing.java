@@ -13,7 +13,7 @@ public class Main {
 
         for (int i = 0; i < l; i++) {
             result += (str.charAt(i) - 96) * pow;
-            pow = pow * 31 % 1234567891;
+            pow = (pow * 31) % 1234567891;
         }
 
         System.out.println(result);
